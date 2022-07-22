@@ -7,3 +7,4 @@ networks
 analysis
 *.out
 *.err
+gold_standard

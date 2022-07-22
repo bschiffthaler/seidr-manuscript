@@ -22,8 +22,6 @@ suppressPackageStartupMessages({
   library(org.Sc.sgd.db)
   
   library(SeidRFile)
-  library(KEGGREST)
-  library(pheatmap)
 })
 
 #' * Out dir
