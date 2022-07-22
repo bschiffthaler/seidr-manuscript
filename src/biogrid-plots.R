@@ -129,7 +129,7 @@ dev.null <- run_org(here("analysis/seidr-plots/dm_biogrid_edgerank.pdf"),
 
 #' ## S. cerevisiae
 dev.null <- run_org(here("analysis/seidr-plots/sc_biogrid_edgerank.pdf"),
-                    here("networks/scere/edges_biogrid.rda"),      
+                    here("networks/scere/edges_biogrid.rda"),
                     here("networks/scere/aggregate/irp.sf"),
                     here("gold_standard/scere_biogrid_all.tsv"))
 
