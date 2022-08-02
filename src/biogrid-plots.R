@@ -67,7 +67,7 @@ plot_summary <- function(edges,plt,
                        axis.text.x = element_text(angle = 45, hjust = 1, vjust = 0.8),
                        legend.position = 'none'),
              lvls=c("Seidr", "CLR", "ELNET", "GENIE3", "LLR", "MI", "NARROMI", "PCOR",
-                    "Pearson", "PLSNET", "Spearman", "TIGRESS", "TOMsimilarity", "TOM")){
+                    "Pearson", "PLSNET", "Spearman", "TIGRESS", "TOMsimilarity")){
   edges %>%
     group_by(InBiogrid) %>%
     sample_n(sum(edges$InBiogrid)) %>%
@@ -78,7 +78,8 @@ plot_summary <- function(edges,plt,
     mutate(Algorithm = recode(Algorithm, irp = "Seidr",
                               SPEARMAN = "Spearman",
                               PEARSON = "Pearson",
-                              TOMSimilarity = "TOMsimilarity")) %>%
+                              TOMSimilarity = "TOMsimilarity",
+                              TOM="TOMsimilarity")) %>%
     mutate(Algorithm = factor(Algorithm, levels = lvls)) %>%
     ggplot(aes(x = Algorithm, y = value, fill = Evidence)) +
     geom_boxplot(notch = TRUE) +

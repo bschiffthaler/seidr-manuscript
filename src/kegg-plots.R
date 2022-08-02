@@ -61,7 +61,7 @@ extract_edges <- function(sf,db,key){
 plot_summary <- function(edges,filename,
                          lvls=c("Seidr", "CLR", "ELNET", "GENIE3", "LLR", 
                                 "MI", "NARROMI", "PCOR","Pearson", "PLSNET", 
-                                "Spearman", "TIGRESS", "TOMsimilarity", "TOM"),
+                                "Spearman", "TIGRESS", "TOMsimilarity"),
                          thm=theme(text = element_text(size = 20),
                                     axis.text.x = element_text(angle = 45, 
                                                                hjust = 1, 
@@ -88,7 +88,8 @@ plot_summary <- function(edges,filename,
     mutate(Algorithm = recode(Algorithm, irp = "Seidr",
                               SPEARMAN = "Spearman",
                               PEARSON = "Pearson",
-                              TOMSimilarity = "TOMsimilarity")) %>%
+                              TOMSimilarity = "TOMsimilarity",
+                              TOM="TOMsimilarity")) %>%
     mutate(Algorithm = factor(Algorithm, levels = lvls)) %>%
     ggplot(aes(y = M, fill = InPath, x = Algorithm)) +
     geom_boxplot(notch = TRUE) +
